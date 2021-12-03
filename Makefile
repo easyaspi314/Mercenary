@@ -56,8 +56,8 @@ $(parser_objs): %.o: %.c
 
 src/lexer/lexer.o: src/lexer/lexer.asm
 	nasm -f$(NASM_FORMAT) $(ASMFLAGS) src/lexer/lexer.asm
-src/lexer/lexer_arm64.o: src/lexer/lexer_arm64.s
-	$(AS) $(ASMFLAGS) $< -o $@
+src/lexer/lexer_arm64.o: src/lexer/lexer_arm64.S
+	$(CC) -c $(ASMFLAGS) $< -o $@
 
 src/lexer/main: src/lexer/main.o $(lexer_obj)
 
